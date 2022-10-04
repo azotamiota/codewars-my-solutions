@@ -7,5 +7,3 @@
 - The increasing order of proficiency/difficulty is: `8 kyu` to `1 kyu`.
 - `8 kyu` ranked challenges are the easiest, `1 kyu` ranked ones are the most difficult.
 - Please note that only `6 kyu`+ ranked challenges' solutions are listed in this repo.
-
-Build Tower
