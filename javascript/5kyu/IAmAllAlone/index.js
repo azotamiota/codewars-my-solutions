@@ -2,13 +2,19 @@ function allAlone(house) {
 	let isHeAlone = true
   house = house.split('\n')
   house = house.map(line => [...line])
-  console.log(house)
-  for (let row = 0; row < house.length; i++) {
-    if (house[row].includes('o'))
-    for (let roomIndex = 0; roomIndex < row.length; roomIndex++) {
-      let amIIn = false
-
-    } 
+  // console.log(house)
+  for (let rowIndex = 0; rowIndex < house.length; rowIndex++) {
+    let isIn = false
+    if (house[rowIndex].includes('o')) {
+      for (let fieldIndex = 0; fieldIndex < house[rowIndex].length; fieldIndex++) {
+        if (house[rowIndex][fieldIndex] === '#' && (house[rowIndex][fieldIndex - 1] !== '#' || house[rowIndex][fieldIndex + 1] !== '#')) {
+          isIn = !isIn
+        }
+        if (house[rowIndex][fieldIndex] === 'o' && isIn) {
+          isHeAlone = false
+        }
+      }
+    }
   }
   // house.forEach(row => {
   //   if (/o/.test(row) && 
@@ -29,18 +35,18 @@ function allAlone(house) {
 
 console.log(allAlone("\
   o                o        #######\n\
-###############             #     #\n\
+###############  o          #     #\n\
 #             #        o    #     #\n\
 #  X          ###############     #\n\
 #                                 #\n\
 ###################################")) // true
 
-// console.log(allAlone(
-// 		 "#################             \n\
-// 			#     o         #   o         \n\
-// 			#          ######        o    \n\
-// 			####       #                  \n\
-// 			   #       ###################\n\
-// 			   #                         #\n\
-// 			   #                  X      #\n\
-// 			   ###########################")) // false
+console.log(allAlone(
+		 "#################             \n\
+			#               #   o         \n\
+			#          ######        o    \n\
+			####       #                  \n\
+			   #       ###################\n\
+			   #                         #\n\
+			   #                  X      #\n\
+			   ###########################")) // false
