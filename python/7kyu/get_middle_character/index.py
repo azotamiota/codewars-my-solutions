@@ -1,0 +1,3 @@
+def get_middle(s):
+    return f'{s[len(s) // 2 - 1]}{s[len(s) // 2]}' if \
+    len(s) % 2 == 0 else f'{s[len(s) // 2]}'
