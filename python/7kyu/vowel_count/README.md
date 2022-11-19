@@ -1,4 +1,4 @@
-# Hands Up
+# Vowel count
 ## Instructions
 Return the number (count) of vowels in the given string.
 
