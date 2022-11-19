@@ -1,15 +1,24 @@
-# Largest 5 digit number in a series
+# Row Weights
 ## Instructions
-In the following 6 digit number:
-```
-283910
-```
-`91` is the greatest sequence of 2 consecutive digits.
+### Scenario
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
 
-In the following 10 digit number:
-```
-1234567890
-```
-`67890` is the greatest sequence of 5 consecutive digits.
+### Task
+Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
 
-Complete the solution so that it returns the greatest sequence of five consecutive digits found within the number given. The number will be passed in as a string of only digits. It should return a five digit integer. The number passed may be as large as 1000 digits.
+### Notes
+- Array size is at least 1.
+- All numbers will be positive.
+
+#### Input >> Output Examples
+```
+rowWeights([13, 27, 49])  ==>  return (62, 27)
+```
+### Explanation:
+The first element `62` is the total weight of team 1, and the second element `27` is the total weight of team 2.
+```
+rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+```
+### Explanation:
+The first element `120` is the total weight of team 1, and the second element `140` is the total weight of team 2.
