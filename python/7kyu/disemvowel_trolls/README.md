@@ -1,4 +1,4 @@
-# Hands Up
+# Disemvowel Trolls
 ## Instructions
 Trolls are attacking your comment section!
 
