@@ -10,4 +10,4 @@ A string representation of an integer will contain no characters besides the ten
 
 I have removed the use of `BigInteger` and `BigDecimal` in java
 
-Python: your solution need to work with huge numbers (about a milion digits), converting to int will not work.
+Python: your solution need to work with huge numbers (about a million digits), converting to int will not work.
