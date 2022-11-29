@@ -1,18 +1,9 @@
-# Next smaller number with the same digits
+# Recover a secret string from random triplets
 ## Instructions
-Write a function that takes a positive integer and returns the next smaller positive integer containing the same digits.
+There is a secret string which is unknown to you. Given a collection of random triplets from the string, recover the original string.
 
-For example:
-```
-next_smaller(21) == 12
-next_smaller(531) == 513
-next_smaller(2071) == 2017
-```
-Return `-1` when there is no smaller number that contains the same digits. Also, return `-1` when the next smaller number with the same digits would require the leading digit to be zero.
-```
-next_smaller(9) == -1
-next_smaller(135) == -1
-next_smaller(1027) == -1  # 0721 is out since we don't write numbers with leading zeros
-```
-- some tests will include very large numbers.
-- test data only employs positive integers.
+A triplet here is defined as a sequence of three letters such that each letter occurs somewhere before the next in the given string. "whi" is a triplet for the string "whatisup".
+
+As a simplification, you may assume that no letter occurs more than once in the secret string.
+
+You can assume nothing about the triplets given to you other than that they are valid triplets and that they contain sufficient information to deduce the original string. In particular, this means that the secret string will never contain letters that do not occur in one of the triplets given to you.
