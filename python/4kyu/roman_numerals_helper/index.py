@@ -26,17 +26,18 @@ class RomanNumerals:
             result += 'XL'
         elif nth_10 == 5:
             result += 'L'
-        elif nth_100 == 9:
+        elif nth_10 == 9:
             result += 'XC'
         else:
+            print('this kicks in')
             result += f'L{(nth_10 - 5) * "X"}'
         if nth_1 < 4:
             result += nth_1 * 'I'
         elif nth_1 == 4:
             result += 'IV'
-        elif nth_10 == 5:
+        elif nth_1 == 5:
             result += 'V'
-        elif nth_100 == 9:
+        elif nth_1 == 9:
             result += 'IX'
         else:
             result += f'V{(nth_1 - 5) * "I"}'
@@ -47,4 +48,4 @@ class RomanNumerals:
     def from_roman(roman_num):
         return 0
 
-print(RomanNumerals.to_roman(1000))
+print(RomanNumerals.to_roman(1987))
