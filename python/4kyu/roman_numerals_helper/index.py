@@ -49,3 +49,4 @@ class RomanNumerals:
         return 0
 
 print(RomanNumerals.to_roman(1987))
+print(RomanNumerals.from_roman('MCMCX'))
