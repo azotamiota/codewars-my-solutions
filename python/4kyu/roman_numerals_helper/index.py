@@ -1,13 +1,10 @@
 class RomanNumerals:
-    romans = {
-        1: 'I', 5: 'V', 10: 'X', 50: 'L', 100: 'C', 500: 'D', 1000: 'M'
-    }
-    def to_roman(val): # 3467
-        print('val: ', val)
-        nth_1000 = val // 1000 # 3 
-        nth_100 = (val % 1000) // 100 # 4
-        nth_10 = (val % 100) // 10 # 6 
-        nth_1 = val % 10 # 7
+
+    def to_roman(val): 
+        nth_1000 = val // 1000  
+        nth_100 = (val % 1000) // 100 
+        nth_10 = (val % 100) // 10 
+        nth_1 = val % 10 
         result = ''
         result += nth_1000 * 'M'
         if nth_100 < 4:
@@ -29,7 +26,6 @@ class RomanNumerals:
         elif nth_10 == 9:
             result += 'XC'
         else:
-            print('this kicks in')
             result += f'L{(nth_10 - 5) * "X"}'
         if nth_1 < 4:
             result += nth_1 * 'I'
@@ -42,11 +38,17 @@ class RomanNumerals:
         else:
             result += f'V{(nth_1 - 5) * "I"}'
         
-        print('results: ', nth_1000,nth_100, nth_10,nth_1)
         return result
-
+    
     def from_roman(roman_num):
-        return 0
-
-print(RomanNumerals.to_roman(1987))
-print(RomanNumerals.from_roman('MCMCX'))
+        result = 0
+        roman_arab = {
+            'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
+        }
+        for idx,digit in enumerate(roman_num):
+            if idx < len(roman_num) - 1 and roman_arab[digit] < roman_arab[roman_num[idx + 1]]:
+                result -= roman_arab[digit]
+            else:
+                result += roman_arab[digit]
+                
+        return result
