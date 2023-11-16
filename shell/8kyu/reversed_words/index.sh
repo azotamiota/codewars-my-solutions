@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 read -ra words <<< "$1"
 for (( i=${#words[@]}-1; i>=0; i-- )); do
