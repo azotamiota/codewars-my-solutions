@@ -1,0 +1,1 @@
+echo "obase=2; $1" | bc | tr -d "0\n" | wc -m
