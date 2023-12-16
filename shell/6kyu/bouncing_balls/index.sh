@@ -12,7 +12,7 @@ if (( $(echo "$1 > 0 && $2 > 0 && $2 < 1 && $3 < $1" | bc -l) )); then
     done
     echo $counter
 else
-    echo "-1"
+    echo -1
 fi
 }
 bouncingBall $1 $2 $3
