@@ -7,6 +7,7 @@ sumsParts() {
     for i in $(seq 0 2 $iterate); do
         number=$(echo "${addition:$i}" | bc)
         result="$result$number "
+        echo $i
     done
     echo "${result::-1}0"
 }
