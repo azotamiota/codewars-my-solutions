@@ -1,22 +1,22 @@
 #!/bin/bash
+playPass () {
 string=$1
 shift_amount=$2
 
-# Initialize an empty result string
 result=""
-ascii_A=$(printf "%d" "'A") # ASCII value of 'A'
-
+ascii_A=$(printf "%d" "'A") 
 
 for (( i=0; i<${#string}; i++ )); do
     char="${string:$i:1}"
     ascii_val=$(printf "%d" "'$char")
-    shifted_ascii_val=$(( (ascii_val - ascii_A + shift) % 26 + ascii_A ))
+    shifted_ascii_val=$(( (ascii_val - ascii_A + shift_amount) % 26 + ascii_A ))
 
     if [[ $char =~ [A-Z] ]]; then
+        char_to_add=$(printf "\\$(printf "%o" "$shifted_ascii_val")")
         if (( $i & 1 )); then
-            result+="\\$(printf "%o" "${shifted_ascii_val,,}")"
+            result+=${char_to_add,,}
         else
-            result+="\\$(printf "%o" "$shifted_ascii_val")"
+            result+=$char_to_add
         fi
     elif [[ $char =~ [0-9] ]]; then
         complement=$(( 9 - $char ))
@@ -26,4 +26,6 @@ for (( i=0; i<${#string}; i++ )); do
     fi
 done
 
-echo "$result"
+echo "$result" | rev
+}
+playPass "$1" "$2"
