@@ -1,12 +1,14 @@
-#!/bin/bash
 min=$1
 max=$2
 result=""
+
 is_prime() {
-    (( $1 == 1 )) && return 1
-    (( $1 == 2 )) && return 0
-    for (( j=2; j<$1; j++ )); do
-        (( $1 % $j == 0 )) && return 1
+    (( $1 == 2 || $1 == 3)) && return 0
+    (( $1 == 1 || $1 % 2 == 0 || $1 % 3 == 0 )) && return 1
+    j=5
+    while (( j * j <= $1 )); do
+        (( $1 % j == 0 || $1 % (j+2) == 0 )) && return 1
+        (( j+= 6 ))
     done
     return 0
 }
@@ -16,7 +18,7 @@ backwardsPrime() {
     if is_prime $i; then
         reversed=$(echo $i | rev)
         if is_prime $reversed && [[ $i != $reversed ]]; then
-            result="$result$i "
+            result+="$i "
         fi
     fi
   done
