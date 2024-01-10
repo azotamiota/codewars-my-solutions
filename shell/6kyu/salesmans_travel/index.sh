@@ -1,6 +1,7 @@
-#!/bin/bash -x
+#!/bin/bash
+
 travel() {
-full_addresses=$(echo $1 | sed "s/\n//g")
+full_addresses=$(echo "$1" | tr -d "\n")
 local IFS=','
 local solution="$2:"
 house_numbers=""
@@ -19,3 +20,14 @@ solution+="${addresses%?}/${house_numbers%?}"
 echo $solution | tr "@" ","
 }
 travel "$1" "$2"
+
+
+############################## Better practice ###########################################
+
+# travel() {
+#   address_without_zipcode="$(echo "$1" | grep -oE '[^,]+' | grep "$2\$" | sed "s/ $2\$//")"
+#   address_without_hn_and_zipcode="$(echo "$address_without_zipcode" | cut -d' ' -f2- | paste -sd,)"
+#   house_numbers="$(echo "$address_without_zipcode" | cut -d' ' -f1 | paste -sd,)"
+#   echo "$2:$address_without_hn_and_zipcode/$house_numbers"
+# }
+# travel "$1" "$2"
